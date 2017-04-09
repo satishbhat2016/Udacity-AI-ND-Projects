@@ -18,8 +18,16 @@ A:
    * Constraint propogation is used to reduce search iterations to ensure that solution can be reached with no extensive searching and matching.
    * Key logic used to identify boxes contained in two diagonal units.
    * To reduce the search heuristic constraint propogation is applied to two additional diagonals - on top of squares, rows and columns
-    
 
+   To solve the given sudoku problem:
+   * Define the diagonals and make it as an additonal unit
+      diagonal_units = [[x+y for x, y in zip(rows, cols)], [x+y for x, y in zip(rows, cols[::-1])]]
+
+   * Add it to the unitlists, units and to peers so that all diagonal units will have diagonal peers
+   * Now, in the program identify the boxes related to two diagonal units and apply the constraints (row, column and square units)
+     to solve the problem
+
+   
 
 ### Install
 
